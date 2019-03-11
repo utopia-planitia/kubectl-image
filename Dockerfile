@@ -5,7 +5,8 @@ RUN apt-get update -y && \
     apt-get install -y \
         curl \
 	git \
-        gettext && \
+        gettext \
+        jq && \
     rm -rf /var/lib/apt/lists/*
 
 ENV KUBECTL_VERSION v1.13.1
