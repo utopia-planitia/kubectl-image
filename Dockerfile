@@ -6,10 +6,11 @@ RUN apt-get update -y && \
         curl \
 	git \
         gettext \
+        netcat \
         jq && \
     rm -rf /var/lib/apt/lists/*
 
-ENV KUBECTL_VERSION v1.13.1
+ENV KUBECTL_VERSION v1.13.11
 RUN curl --fail -L https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
  && chmod +x /usr/local/bin/kubectl
 
