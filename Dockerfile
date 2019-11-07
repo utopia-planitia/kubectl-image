@@ -1,5 +1,5 @@
 
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 RUN apt-get update -y && \
     apt-get install -y \
@@ -10,7 +10,7 @@ RUN apt-get update -y && \
         jq && \
     rm -rf /var/lib/apt/lists/*
 
-ENV KUBECTL_VERSION v1.13.11
+ENV KUBECTL_VERSION v1.14.8
 RUN curl --fail -L https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
  && chmod +x /usr/local/bin/kubectl
 
