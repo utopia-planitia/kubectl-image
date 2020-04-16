@@ -10,18 +10,19 @@ RUN apt-get update -y && \
         jq && \
     rm -rf /var/lib/apt/lists/*
 
-ENV MINIO_VERSION mc.RELEASE.2019-10-09T22-54-57Z
+ENV MINIO_VERSION mc.RELEASE.2020-04-15T20-18-00Z
 RUN curl --fail -L -o mc https://dl.min.io/client/mc/release/linux-amd64/archive/${MINIO_VERSION} && \
     chmod +x mc && \
     mv mc /usr/local/bin/mc
 
-ENV KUBECTL_VERSION v1.14.8
+ENV KUBECTL_VERSION v1.17.4
 RUN curl --fail -L -o kubectl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x kubectl && \
     mv kubectl /usr/local/bin/kubectl
 
-ENV KUSTOMIZE_VERSION 1.0.11
-RUN curl --fail -L -o kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64 && \
+ENV KUSTOMIZE_VERSION v3.5.4
+RUN curl --fail -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz | \
+    tar -xzf - kustomize && \
     chmod +x kustomize && \
     mv kustomize /usr/local/bin/kustomize
 
