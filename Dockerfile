@@ -1,21 +1,23 @@
 
-FROM ubuntu:19.10
+FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y && \
     apt-get install -y \
         curl \
         git \
         gettext-base \
         netcat \
+        dnsutils \
         jq && \
     rm -rf /var/lib/apt/lists/*
 
-ENV MINIO_VERSION mc.RELEASE.2020-04-15T20-18-00Z
-RUN curl --fail -L -o mc https://dl.min.io/client/mc/release/linux-amd64/archive/${MINIO_VERSION} && \
+ENV MINIO_VERSION RELEASE.2020-04-25T00-43-23Z
+RUN curl --fail -L -o mc https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MINIO_VERSION} && \
     chmod +x mc && \
     mv mc /usr/local/bin/mc
 
-ENV KUBECTL_VERSION v1.17.4
+ENV KUBECTL_VERSION v1.17.5
 RUN curl --fail -L -o kubectl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x kubectl && \
     mv kubectl /usr/local/bin/kubectl
@@ -37,3 +39,4 @@ RUN which awk
 RUN which mc
 RUN which kubectl
 RUN which envsubst
+RUN which nslookup
