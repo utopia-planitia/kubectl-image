@@ -12,7 +12,7 @@ RUN apt-get update -y && \
         jq && \
     rm -rf /var/lib/apt/lists/*
 
-ENV MINIO_VERSION RELEASE.2020-04-25T00-43-23Z
+ENV MINIO_VERSION RELEASE.2020-10-03T02-54-56Z
 RUN curl --fail -L -o mc https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MINIO_VERSION} && \
     chmod +x mc && \
     mv mc /usr/local/bin/mc
