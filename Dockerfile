@@ -22,7 +22,7 @@ RUN curl --fail -L -o kubectl https://storage.googleapis.com/kubernetes-release/
     chmod +x kubectl && \
     mv kubectl /usr/local/bin/kubectl
 
-ENV KUSTOMIZE_VERSION v3.5.4
+ENV KUSTOMIZE_VERSION v3.8.4
 RUN curl --fail -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz | \
     tar -xzf - kustomize && \
     chmod +x kustomize && \
