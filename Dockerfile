@@ -17,7 +17,7 @@ RUN curl --fail -L -o mc https://dl.min.io/client/mc/release/linux-amd64/archive
     chmod +x mc && \
     mv mc /usr/local/bin/mc
 
-ENV KUBECTL_VERSION v1.17.5
+ENV KUBECTL_VERSION v1.19.2
 RUN curl --fail -L -o kubectl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x kubectl && \
     mv kubectl /usr/local/bin/kubectl
