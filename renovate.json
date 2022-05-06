@@ -1,0 +1,46 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "pinDigests": false,
+  "prHourlyLimit": 0,
+  "labels": [
+    "renovate-bot"
+  ],
+  "automerge": true,
+  "automergeType": "pr",
+  "platformAutomerge": true,
+  "regexManagers": [
+    {
+      "depNameTemplate": "kubectl",
+      "packageNameTemplate": "kubernetes/kubernetes",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^Kubernetes (?<version>[\\s]+)$",
+      "fileMatch": "Dockerfile",
+      "matchStrings": [
+        "ENV KUBECTL_VERSION=(?<currentValue>[^\\s]+)"
+      ]
+    },
+    {
+      "depNameTemplate": "kustomize",
+      "packageNameTemplate": "kubernetes-sigs/kustomize",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^kustomize/(?<version>[\\s]+)$",
+      "fileMatch": "Dockerfile",
+      "matchStrings": [
+        "ENV KUSTOMIZE_VERSION=(?<currentValue>[^\\s]+)"
+      ]
+    },
+    {
+      "depNameTemplate": "minio",
+      "packageNameTemplate": "minio/mc",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "regex:^RELEASE.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T(?<build>\\d+)-\\d+-\\d+Z$",
+      "fileMatch": "Dockerfile",
+      "matchStrings": [
+        "ENV MINIO_VERSION=(?<currentValue>[^\\s]+)"
+      ]
+    }
+  ]
+}
