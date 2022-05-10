@@ -16,8 +16,6 @@
       "depNameTemplate": "kubectl",
       "packageNameTemplate": "kubernetes/kubernetes",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^Kubernetes (?<version>[\\s]+)$",
-      "versioningTemplate": "semver",
       "fileMatch": "Dockerfile",
       "matchStrings": [
         "ENV KUBECTL_VERSION=(?<currentValue>[^\\s]+)"
