@@ -17,6 +17,7 @@
       "packageNameTemplate": "kubernetes/kubernetes",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^Kubernetes (?<version>[\\s]+)$",
+      "versioningTemplate": "semver",
       "fileMatch": "Dockerfile",
       "matchStrings": [
         "ENV KUBECTL_VERSION=(?<currentValue>[^\\s]+)"
@@ -27,6 +28,7 @@
       "packageNameTemplate": "kubernetes-sigs/kustomize",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^kustomize/(?<version>[\\s]+)$",
+      "versioningTemplate": "semver",
       "fileMatch": "Dockerfile",
       "matchStrings": [
         "ENV KUSTOMIZE_VERSION=(?<currentValue>[^\\s]+)"
