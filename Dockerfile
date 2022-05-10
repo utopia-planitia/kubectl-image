@@ -23,7 +23,7 @@ RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     command -v mc; \
     mc --version | grep --fixed-strings "${MINIO_VERSION:?}"
 
-ENV KUBECTL_VERSION=v1.23.6
+ENV KUBECTL_VERSION=v1.24.0
 RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     ARCH="$(uname --machine | sed --expression='s/aarch64/arm64/' --expression='s/x86_64/amd64/')"; \
     curl --fail --location --output /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/${KERNEL:?}/${ARCH:?}/kubectl"; \
