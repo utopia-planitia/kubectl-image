@@ -11,6 +11,7 @@ RUN apt-get update; \
         git \
         jq \
         netcat \
+        openssh-client \
         ; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
@@ -52,6 +53,7 @@ RUN command -v awk; \
     command -v md5sum; \
     command -v nc; \
     command -v nslookup; \
+    command -v ssh; \
     command -v sort; \
     command -v tar
 
