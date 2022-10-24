@@ -16,7 +16,7 @@ RUN apt-get update; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
-ENV MINIO_VERSION=RELEASE.2022-10-20T23-26-33Z
+ENV MINIO_VERSION=RELEASE.2022-10-22T03-39-29Z
 RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     ARCH="$(uname --machine | sed --expression='s/aarch64/arm64/' --expression='s/x86_64/amd64/')"; \
     curl --fail --location --output /usr/local/bin/mc "https://dl.min.io/client/mc/release/${KERNEL:?}-${ARCH:?}/archive/mc.${MINIO_VERSION:?}"; \
