@@ -32,7 +32,7 @@ RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     command -v kubectl; \
     kubectl version --client --short | grep --fixed-strings "${KUBECTL_VERSION:?}"
 
-ENV KUSTOMIZE_VERSION=v5.0.1
+ENV KUSTOMIZE_VERSION=v5.0.2
 RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     ARCH="$(uname --machine | sed --expression='s/aarch64/arm64/' --expression='s/x86_64/amd64/')"; \
     curl --fail --location --output kustomize.tar.gz "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_${KERNEL:?}_${ARCH:?}.tar.gz"; \
