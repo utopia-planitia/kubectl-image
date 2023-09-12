@@ -69,7 +69,7 @@ jobs:
 
       - name: Log in to registry
         if: contains(fromJson('["refs/heads/main", "refs/heads/master"]'), github.ref)
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
