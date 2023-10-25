@@ -30,7 +30,7 @@ RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     curl --fail --location --output /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/${KERNEL:?}/${ARCH:?}/kubectl"; \
     chmod +x /usr/local/bin/kubectl; \
     command -v kubectl; \
-    kubectl version --client --short | grep --fixed-strings "${KUBECTL_VERSION:?}"
+    kubectl version --client | grep --fixed-strings "${KUBECTL_VERSION:?}"
 
 ENV KUSTOMIZE_VERSION=v5.2.1
 RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
