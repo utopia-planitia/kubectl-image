@@ -9,6 +9,7 @@ env:
 
 jobs:
   hadolint:
+    name: Hadolint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,6 +21,7 @@ jobs:
           dockerfile: Dockerfile
 
   docker:
+    name: Docker
     runs-on: ubuntu-latest
     permissions:
       contents: read
