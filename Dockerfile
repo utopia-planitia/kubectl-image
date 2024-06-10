@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM docker.io/library/ubuntu:24.04
 SHELL [ "/bin/bash", "-euxo", "pipefail", "-c" ]
 
 # hadolint ignore=DL3008
@@ -10,7 +10,7 @@ RUN apt-get update; \
         gettext-base \
         git \
         jq \
-        netcat \
+        netcat-openbsd \
         openssh-client \
         ; \
     apt-get clean; \
