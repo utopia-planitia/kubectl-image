@@ -40,7 +40,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Prepare kubectl version
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           load: true
@@ -61,7 +61,7 @@ jobs:
           tags: ${{ env.KUBECTL_VERSION }}
 
       - name: Build image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64
@@ -79,7 +79,7 @@ jobs:
 
       - name: Push image
         if: contains(fromJson('["refs/heads/main", "refs/heads/master"]'), github.ref)
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64
