@@ -16,7 +16,7 @@ RUN apt-get update; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
-ENV MINIO_VERSION=RELEASE.2024-06-05T18-13-30Z
+ENV MINIO_VERSION=RELEASE.2024-06-29T19-08-46Z
 RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     ARCH="$(uname --machine | sed --expression='s/aarch64/arm64/' --expression='s/x86_64/amd64/')"; \
     curl --fail --location --output /usr/local/bin/mc "https://dl.min.io/client/mc/release/${KERNEL:?}-${ARCH:?}/archive/mc.${MINIO_VERSION:?}"; \
@@ -24,7 +24,7 @@ RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     command -v mc; \
     mc --version | grep --fixed-strings "${MINIO_VERSION:?}"
 
-ENV KUBECTL_VERSION=v1.30.1
+ENV KUBECTL_VERSION=v1.30.2
 RUN KERNEL="$(uname --kernel-name | tr '[:upper:]' '[:lower:]')"; \
     ARCH="$(uname --machine | sed --expression='s/aarch64/arm64/' --expression='s/x86_64/amd64/')"; \
     curl --fail --location --output /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/${KERNEL:?}/${ARCH:?}/kubectl"; \
