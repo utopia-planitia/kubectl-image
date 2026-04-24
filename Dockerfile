@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:24.04
+FROM docker.io/library/ubuntu:26.04
 SHELL [ "/bin/bash", "-euxo", "pipefail", "-c" ]
 
 # hadolint ignore=DL3008
